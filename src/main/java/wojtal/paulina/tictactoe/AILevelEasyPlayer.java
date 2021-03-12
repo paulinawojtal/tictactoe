@@ -7,6 +7,7 @@ public class AILevelEasyPlayer implements Player {
     Random random = new Random();
     private String name;
     private Symbol symbol;
+    private Board board;
 
     public AILevelEasyPlayer( String name, Symbol symbol ) {
         this.name = name;
@@ -19,7 +20,12 @@ public class AILevelEasyPlayer implements Player {
     }
 
     @Override
-    public void makeTheMove(Board board) {
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    @Override
+    public void makeTheMove() {
         System.out.println("Making move level \"easy\"");
 
         boolean keepTrying = true;
@@ -42,6 +48,5 @@ public class AILevelEasyPlayer implements Player {
     public String toString() {
         return "" + name + ", symbol: " + symbol;
     }
-
 
 }

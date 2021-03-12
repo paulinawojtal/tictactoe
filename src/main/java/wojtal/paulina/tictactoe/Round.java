@@ -2,21 +2,25 @@ package wojtal.paulina.tictactoe;
 
 class Round {
 
-    private final TicTacToeBoard board;
-    private final Printer printer;
+    private final Board board;
     private final Player player;
     private final Symbol playerSymbol;
+    private int counter;
 
-    Round( TicTacToeBoard board , Player player) {
+    Round(Board board , Player player) {
         this.board = board;
-        this.printer = new Printer();
         this.player = player;
         playerSymbol = player.getSymbol();
+        counter++;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     void playOneRound() {
-        player.makeTheMove( board );
-        printer.print( board );
+        player.makeTheMove();
+        board.print();
     }
 
     GameState evaluateGame() {

@@ -2,21 +2,21 @@ package wojtal.paulina.tictactoe;
 
 class Game {
 
-    private final TicTacToeBoard board;
+    private final Board board;
     private Round round;
     private final Player firstPlayer;
     private final Player secondPlayer;
-    private final Printer printer;
 
     public Game(Player player1, Player player2) {
         this.board = new TicTacToeBoard();
         this.firstPlayer = player1;
         this.secondPlayer = player2;
-        this.printer = new Printer();
+        firstPlayer.setBoard(board);
+        secondPlayer.setBoard(board);
     }
 
     void play() {
-        printer.print( board );
+        board.print();
 
         boolean keepPlaying = true;
 

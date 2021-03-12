@@ -15,7 +15,7 @@ enum Level {
     }, MEDIUM("medium") {
         @Override
         Player setPlayer(Symbol symbol) {
-            return null;
+            return new AILevelMediumPlayer("AIMedium", symbol);
         }
     }, HARD("hard") {
         @Override

@@ -50,6 +50,8 @@ public class Main {
                 return Level.USER.setPlayer( symbol );
             case "easy":
                 return Level.EASY.setPlayer( symbol );
+            case "medium":
+                return Level.MEDIUM.setPlayer( symbol );
             default:
                 return null;
         }

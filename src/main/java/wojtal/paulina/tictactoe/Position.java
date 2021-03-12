@@ -10,5 +10,8 @@ public class Position {
         this.secondCoordinate = secondCoordinate;
     }
 
-
+    @Override
+    public String toString() {
+        return "[" + firstCoordinate + "," + secondCoordinate + "]";
+    }
 }

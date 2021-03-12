@@ -6,11 +6,12 @@ class HumanPlayer implements Player{
 
     private final String name;
     private final Symbol symbol;
-    private final Scanner scanner = new Scanner( System.in );
+    private final Scanner scanner = new Scanner(System.in);
     private int firstCoordinate;
     private int secondCoordinate;
+    private Board board;
 
-    public HumanPlayer( String name, Symbol symbol ) {
+    public HumanPlayer(String name, Symbol symbol) {
         this.name = name;
         this.symbol = symbol;
     }
@@ -26,7 +27,12 @@ class HumanPlayer implements Player{
     }
 
     @Override
-    public void makeTheMove(Board board) {
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    @Override
+    public void makeTheMove() {
         String coordinatesInput;
         boolean keepTrying = true;
 
@@ -34,7 +40,8 @@ class HumanPlayer implements Player{
             System.out.println( "Enter the coordinates: > " );
             coordinatesInput = scanner.nextLine();
 
-            if (assignCoordinatesIfPossible( coordinatesInput )) {
+            boolean isAssignPossible = assignCoordinatesIfPossible(coordinatesInput);
+            if (isAssignPossible) {
                 boolean coordinatesAreInRange = checkIfCoordinatesAreInRange1to3();
                 if (coordinatesAreInRange) {
                     if (board.isThisBoardCellEmpty( firstCoordinate - 1, secondCoordinate -1)) {
@@ -54,8 +61,8 @@ class HumanPlayer implements Player{
             String[] array = input.split( "\\s+" );
             firstCoordinate = Integer.parseInt( array[0] );
             secondCoordinate = Integer.parseInt( array[1] );
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println( "You should enter numbers!" );
+        } catch (RuntimeException e) {
+            System.out.println("You should enter numbers!");
             return false;
         }
         return true;

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoundTest {
 
-    static TicTacToeBoard board;
+    static Board board;
     static Round round;
     static Player player;
 

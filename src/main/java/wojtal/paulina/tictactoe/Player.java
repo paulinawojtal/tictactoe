@@ -4,6 +4,8 @@ public interface Player {
 
     Symbol getSymbol();
 
-    void makeTheMove(Board board);
+    void setBoard(Board board);
+
+    void makeTheMove();
 
 }

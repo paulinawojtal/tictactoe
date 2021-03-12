@@ -13,4 +13,9 @@ class Cell {
     public Symbol getSymbol() {
         return symbol;
     }
+
+    @Override
+    public String toString() {
+        return "Cell: position " + position + ", symbol " + symbol;
+    }
 }
