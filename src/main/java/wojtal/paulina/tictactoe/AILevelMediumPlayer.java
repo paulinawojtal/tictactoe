@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class AILevelMediumPlayer implements Player{
 
-    private String name;
-    private Symbol symbol;
+    private final String name;
+    private final Symbol symbol;
     private Board board;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public AILevelMediumPlayer(String name, Symbol symbol) {
         this.name = name;
